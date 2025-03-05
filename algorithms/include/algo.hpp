@@ -15,7 +15,12 @@ int linear_search(Array * a, const int target)
 
 long factorial(const int n)
 {
-    return 0;
+    long result = n;
+    for (int i = n; i > 1; i--)
+    {
+        result *= (n-1);
+    }
+    return result;
 }
 
 #endif // ALGO_H_
