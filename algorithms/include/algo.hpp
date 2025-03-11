@@ -24,12 +24,15 @@ int linear_search(Array * a, const int target)
 
 long factorial(const int n)
 {
-    long result = n;
-    for (int i = n; i > 1; i--)
-    {
-        result *= (n-1);
-    }
-    return result;
+    //long result = n;
+    //for (int i = n; i > 1; i--)
+    //{
+    //    result *= (i-1);
+    //}
+    //return result;
+
+    if(n == 0) return 1;
+    else return n * factorial(n - 1);
 }
 
 #endif // ALGO_H_
