@@ -5,16 +5,19 @@
 
 long fibonacci(const int n)
 {
-    return 0;
+    //std:cout << n << std::endl;
+    if (n == 0 || n ==1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+    //return 0;
 }
 
 int linear_search(Array * a, const int target)
 {
-    for (int i = 0; i < a->len; i++)
+    for (size_t i = 0; i < a->len; i++)
     {
-        if (a[i] == target) return true;
+        if (a->data[i] == target) return i;
     }
-    return false;
+    return -1;
 }
 
 long factorial(const int n)
