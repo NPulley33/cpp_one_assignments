@@ -19,9 +19,6 @@ positive_long_only fib_iterative(const positive_long_only n)
 }
 
 int main() {
-    int y = fib_iterative(10000000000000000);
-    std::cout << y << std::endl;
-    //int x= fibonacci(10000);
-    //std::cout << x << std::endl;
+    
     return 0;
 }

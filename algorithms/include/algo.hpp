@@ -20,15 +20,6 @@ int linear_search(Array * a, const int target)
         if (a->data[i] == target) return i;
     }
     return -1;
-{
-    for(size_t i = 0; i < a->len; i++)
-    {
-        if(a->data[i] == target)
-        {
-            return i;
-        }
-    }
-    return -1;
 }
 
 long factorial(const int n)
@@ -42,11 +33,6 @@ long factorial(const int n)
 
     if(n == 0) return 1;
     else return n * factorial(n - 1);
-    if(n == 0)
-        return 1;
-    else{
-        return n * factorial(n - 1);
-    }
 }
 
 std::string fizz_buzz_checker(const int n) {
