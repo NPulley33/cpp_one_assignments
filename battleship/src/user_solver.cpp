@@ -3,6 +3,42 @@
 
 void UserSolver::solve(Board &board) {
     // Your Implementation goes here
+
+    int searched[1000, 1000];
+
+    for(size_t t = 0; t < 1000; t++)
+    {
+        for (size_t u = 0; u < 1000; u++)
+        {
+            searched[t, u] = 0;
+        }
+    }
+
+    for (size_t i = 0; i < board.getX(); i++) {
+        for (size_t j = 0; j < board.getY(); j++) {
+            if (searched[i,j] > 0) continue; //already searched
+
+            int returnedGuess = guess(i, j, board);
+            if (returnedGuess == 2 || returnedGuess == 0) continue;
+            if (returnedGuess == 3 || returnedGuess == 1)
+            {
+                //search around the current cell position
+                guess(i + 1, j, board);
+                guess(i - 1, j, board);
+                guess(i, j + 1, board);
+                guess(i, j - 1, board);
+
+                searched[i + 1, j] = 1;
+                searched[i - 1, j] = 1;
+                searched[i, j + 1] = 1;
+                searched[i, j - 1] = 1;
+            }
+
+            searched[i, j] = 1;
+        }
+    }
+
+    
     ReturnType t = guess(1, 1, board);
     std::cout << t << std::endl;
 }
