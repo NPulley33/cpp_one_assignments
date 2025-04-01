@@ -19,7 +19,6 @@ void UserSolver::solve(Board &board) {
             if (searched[i,j] > 0) continue; //already searched
 
             int returnedGuess = guess(i, j, board);
-            if (returnedGuess == 2 || returnedGuess == 0) continue;
             if (returnedGuess == 3 || returnedGuess == 1)
             {
                 //search around the current cell position
@@ -33,7 +32,6 @@ void UserSolver::solve(Board &board) {
                 searched[i, j + 1] = 1;
                 searched[i, j - 1] = 1;
             }
-
             searched[i, j] = 1;
         }
     }
