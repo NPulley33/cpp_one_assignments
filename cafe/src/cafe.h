@@ -5,6 +5,7 @@
 
 #include <stdexcept>
 #include <vector>
+#include <set>
 
 #include "item.h"
 #include "utils.h"
@@ -24,7 +25,22 @@ class Cafe {
     ~Cafe() { delete this->items; };
 
     void stock_item(const Item &item) {
+        for (Item i : *this->items)
+        {
+            if (i == item) return;
+        }
+
         this->items->push_back(item);
+    }
+
+    Item get_item(ItemType type)
+    {
+        for (Item i : *this->items)
+        {
+            if (i.type == type)
+            return i;
+        }
+        throw std::runtime_error("No Item Found");
     }
 
     Item get_item(const std::string &name) {
