@@ -19,18 +19,43 @@ void UserSolver::solve(Board &board) {
             if (searched[i,j] > 0) continue; //already searched
 
             int returnedGuess = guess(i, j, board);
-            if (returnedGuess == 3 || returnedGuess == 1)
+            if (returnedGuess == 3)
             {
+                //near miss, there is a hit in an adjacent cell
                 //search around the current cell position
                 guess(i + 1, j, board);
                 guess(i - 1, j, board);
                 guess(i, j + 1, board);
                 guess(i, j - 1, board);
 
+                guess(i + 1, j + 1, board);
+                guess(i - 1, j - 1, board);
+                guess(i - 1, j + 1, board);
+                guess(i + 1, j - 1, board);
+
+
                 searched[i + 1, j] = 1;
                 searched[i - 1, j] = 1;
                 searched[i, j + 1] = 1;
                 searched[i, j - 1] = 1;
+
+                searched[i + 1, j + 1] = 1;
+                searched[i - 1, j - 1] = 1;
+                searched[i - 1, j + 1] = 1;
+                searched[i + 1, j - 1] = 1;
+            }
+            else if (returnedGuess == 2)
+            {
+                //miss, no adjacent cells have a ship
+                searched[i + 1, j] = 1;
+                searched[i - 1, j] = 1;
+                searched[i, j + 1] = 1;
+                searched[i, j - 1] = 1;
+
+                searched[i + 1, j + 1] = 1;
+                searched[i - 1, j - 1] = 1;
+                searched[i - 1, j + 1] = 1;
+                searched[i + 1, j - 1] = 1;
             }
             searched[i, j] = 1;
         }
