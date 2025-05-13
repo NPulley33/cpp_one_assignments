@@ -2,28 +2,26 @@
 #define REGISTER_H_
 
 #include<map>
-#include<vector>
+#include <vector>
+
 #include "item.h"
 
-enum CurrencyType 
-{ 
-    BENJAMIN, 
-    TWENTY_DOLLAR, 
-    TEN_DOLLAR, 
-    FIVE_DOLLAR, 
-    DOLLAR, 
-    QUARTER, 
-    DIME, 
-    NICKEL, 
-    PENNY 
+enum CurrencyType {
+    BENJAMIN,
+    TWENTY_DOLLAR,
+    TEN_DOLLAR,
+    FIVE_DOLLAR,
+    DOLLAR,
+    QUARTER,
+    DIME,
+    NICKEL,
+    PENNY
 };
 
 class Currency {
-    public:
-    constexpr static float get_currency_value(CurrencyType type)  //constexpr markes as computable at compile time, omits function call at runtime
-    {
-        switch(type)
-        {
+   public:
+    constexpr static float get_currency_value(CurrencyType type) {
+        switch (type) {
             case BENJAMIN:
                 return 100.00;
             case TWENTY_DOLLAR:
@@ -35,21 +33,23 @@ class Currency {
             case DOLLAR:
                 return 1.00;
             case QUARTER:
-                return 0.25;
+                return .25;
             case DIME:
-                return 0.10;
+                return .10;
             case NICKEL:
-                return 0.05;
+                return .05;
             case PENNY:
-                return 0.01;
+                return .01;
         }
     }
 };
 
 class Register {
-  public: 
-    std::map<CurrencyType, int> checkout(const std::vector<Item> &items, float money)
-    { return {}; }
+   public:
+   std::map<CurrencyType, int> checkout(const std::vector<Item> &items)
+   {
+       return {};
+   }
 };
 
-#endif // REGISTER_H_
+#endif  // REGISTER_H_

@@ -7,7 +7,7 @@
 #include "../src/cart.h"
 
 TEST(CAFE_INVENTORY_ADD_ITEM_TEST, BasicAssertion) {
-    Item apple = Item(ItemType::APPLE, .50, "Apple");
+    Item apple = Item(ItemType::APPLE, 1.50, "Apple");
 
     Cafe c = Cafe();
 
@@ -36,12 +36,11 @@ TEST(CAFE_INVENTORY_ITEM_CASE_SENSITVE_TEST, BasicAssertions) {
     ASSERT_EQ(returned.description, apple.description);
 }
 
-TEST(CAFE_INVENTORY_ITEM_BY_TYPE, BasicAssertations)
-{
+TEST(CAFE_INVENTORY_ITEM_BY_TYPE, BasicAssertions) {
     Item apple = Item(ItemType::APPLE, 1.50, "Apple");
 
     Cafe c = Cafe();
-    
+
     c.stock_item(apple);
 
     Item returned = c.get_item(ItemType::APPLE);
@@ -49,8 +48,7 @@ TEST(CAFE_INVENTORY_ITEM_BY_TYPE, BasicAssertations)
     ASSERT_EQ(returned.type, apple.type);
 }
 
-TEST(CART_TEST_ADD, BasicAssertations)
-{
+TEST(CART_TEST_ADD, BasicAssertions) {
     Item apple = Item(ItemType::APPLE, 1.50, "Apple");
     Cart c = {};
     c.add_to_cart(apple);

@@ -1,8 +1,8 @@
 #ifndef CART_H_
 #define CART_H_
 
-#include<vector>
-#include"item.h"
+#include <vector>
+#include "item.h"
 
 class Cart
 {
@@ -20,4 +20,4 @@ class Cart
     }
 };
 
-#endif //CART_H_
+#endif // CART_H_

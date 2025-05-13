@@ -1,19 +1,13 @@
 #ifndef CAFE_H_
 #define CAFE_H_
 
-#include <ctype.h>
-
+#include <iostream>
 #include <stdexcept>
 #include <vector>
 #include <set>
 
 #include "item.h"
 #include "utils.h"
-#include <iostream>
-
-// stock inventory
-// choose specific items
-// checkout
 
 class Cafe {
    private:
@@ -25,20 +19,21 @@ class Cafe {
     ~Cafe() { delete this->items; };
 
     void stock_item(const Item &item) {
-        for (Item i : *this->items)
+        for(Item i : *this->items)
         {
-            if (i == item) return;
+            if(i == item)
+            {
+                return;
+            }
         }
-
         this->items->push_back(item);
     }
 
-    Item get_item(ItemType type)
-    {
-        for (Item i : *this->items)
-        {
-            if (i.type == type)
-            return i;
+    Item get_item(ItemType type) {
+        for (Item i : *this->items) {
+            if (i.type == type) {
+                return i;
+            }
         }
         throw std::runtime_error("No Item Found");
     }
